@@ -8,17 +8,17 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('assets/css'));
 });
 
-gulp.task('browser-sync', function() {  
-    browserSync.init(["**/*.html", "assets/css/*.css", "assets/js/*.js"], {
+/*gulp.task('browser-sync', function() {  
+    browserSync.init(["**//*.html", "assets/css/*.css", "assets/js/*.js"], {
         server: {
             baseDir: "./"
         }
     });
 });
 
-gulp.task('default', ['sass', 'browser-sync'], function () {  
+*/
+gulp.task('default', ['sass'], function () {  
     gulp.watch("scss/*.scss", ['sass']);
-	gulp.watch("**/*.html").on('change', browserSync.reload);
 });
 
 gulp.task('serveprod', function() {
