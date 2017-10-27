@@ -20,3 +20,11 @@ gulp.task('default', ['sass', 'browser-sync'], function () {
     gulp.watch("scss/*.scss", ['sass']);
 	gulp.watch("**/*.html").on('change', browserSync.reload);
 });
+
+gulp.task('serveprod', function() {
+	connect.server({
+		root: "./",
+		port: prcess.env.PORT || 5000,
+		livereload: false
+	});
+});
