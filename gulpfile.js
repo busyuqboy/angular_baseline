@@ -1,3 +1,4 @@
+
 var gulp = require('gulp');  
 var sass = require('gulp-sass');  
 var browserSync = require('browser-sync');
@@ -8,23 +9,22 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('assets/css'));
 });
 
-/*gulp.task('browser-sync', function() {  
+gulp.task('browser-sync', function() {  
     browserSync.init(["**//*.html", "assets/css/*.css", "assets/js/*.js"], {
         server: {
-            baseDir: "./"
-        }
+            baseDir: "./assets"
+        }		
     });
 });
 
-*/
-gulp.task('default', ['sass'], function () {  
+gulp.task('default', ['sass', 'browser-sync'], function () {  
     gulp.watch("scss/*.scss", ['sass']);
 });
 
 gulp.task('serveprod', function() {
 	connect.server({
 		root: "./",
-		port: prcess.env.PORT || 5000,
+		port: 5000,
 		livereload: false
 	});
 });
